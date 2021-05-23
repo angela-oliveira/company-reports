@@ -1,6 +1,8 @@
 package br.edu.ifpb.report.controller;
 
+import br.edu.ifpb.report.database.Connector;
 import br.edu.ifpb.report.database.MysqlDatabaseConnector;
+import br.edu.ifpb.report.database.PostgreSQLDatabaseConnector;
 
 public class TaxReport extends ReportTemplate {
 
@@ -11,11 +13,17 @@ public class TaxReport extends ReportTemplate {
       //  executeMySQLQuery();
         //convertToPDF();
     // }
+    //@Override
+    //public void createDatabaseConnection() {
+      //  System.out.println("Creating Database Connection...");
+        //connector.openConnection();
+    //}
+
     @Override
-    public void createDatabaseConnection() {
-        System.out.println("Creating Database Connection...");
-        connector.openConnection();
+    protected Connector getConnector() {
+    	return new PostgreSQLDatabaseConnector();
     }
+
     @Override
     public void executeDatBase() {
         System.out.println("Executing MySQL Query...");
