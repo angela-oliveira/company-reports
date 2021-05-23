@@ -8,7 +8,6 @@ public class Main {
 
     public static void main(String[] args) {
         ReportService reportService = new ReportService();
-        // DB db = new MysqlDatabase().getDatabase();
         reportService.generateReport(new ExpenseReport());
         reportService.generateReport(new TaxReport());
         // reportService.generateReport("expense");
